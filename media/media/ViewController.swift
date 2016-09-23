@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import MediaPlayer
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,AVPlayerViewControllerDelegate {
     
     fileprivate var playerVC: AVPlayerViewController?
 
@@ -56,13 +56,101 @@ class ViewController: UIViewController {
 
         playerVC = AVPlayerViewController()
         playerVC?.player = AVPlayer(url: url!)
+        playerVC?.delegate = self
         
         playerVC?.player?.play()
         
-        playerVC?.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        playerVC?.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height / 2)
         
         view.addSubview((playerVC?.view)!)
     }
+}
 
+extension ViewController {
+    /*!
+    	@method		playerViewControllerWillStartPictureInPicture:
+    	@param		playerViewController
+     The player view controller.
+    	@abstract	Delegate can implement this method to be notified when Picture in Picture will start.
+     */
+
+    func playerViewControllerWillStartPictureInPicture(_ playerViewController: AVPlayerViewController) {
+        
+    }
+    
+    
+    /*!
+    	@method		playerViewControllerDidStartPictureInPicture:
+    	@param		playerViewController
+     The player view controller.
+    	@abstract	Delegate can implement this method to be notified when Picture in Picture did start.
+     */
+    func playerViewControllerDidStartPictureInPicture(_ playerViewController: AVPlayerViewController) {
+        
+    }
+    
+    
+    /*!
+    	@method		playerViewController:failedToStartPictureInPictureWithError:
+    	@param		playerViewController
+     The player view controller.
+    	@param		error
+     An error describing why it failed.
+    	@abstract	Delegate can implement this method to be notified when Picture in Picture failed to start.
+     */
+    
+    func playerViewController(_ playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: Error) {
+        
+    }
+    
+    
+    /*!
+    	@method		playerViewControllerWillStopPictureInPicture:
+    	@param		playerViewController
+     The player view controller.
+    	@abstract	Delegate can implement this method to be notified when Picture in Picture will stop.
+     */
+    
+    func playerViewControllerWillStopPictureInPicture(_ playerViewController: AVPlayerViewController) {
+        
+    }
+    
+    
+    /*!
+    	@method		playerViewControllerDidStopPictureInPicture:
+    	@param		playerViewController
+     The player view controller.
+    	@abstract	Delegate can implement this method to be notified when Picture in Picture did stop.
+     */
+    
+    func playerViewControllerDidStopPictureInPicture(_ playerViewController: AVPlayerViewController) {
+        
+    }
+    
+    
+    /*!
+    	@method		playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart:
+    	@param		playerViewController
+     The player view controller.
+    	@abstract	Delegate can implement this method and return NO to prevent player view controller from automatically being dismissed when Picture in Picture starts.
+     */
+    
+    func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(_ playerViewController: AVPlayerViewController) -> Bool {
+        return true
+    }
+    
+    
+    /*!
+    	@method		playerViewController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:
+    	@param		playerViewController
+     The player view controller.
+    	@param		completionHandler
+     The completion handler the delegate needs to call after restore.
+    	@abstract	Delegate can implement this method to restore the user interface before Picture in Picture stops.
+     */
+    
+    func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Swift.Void) {
+        
+    }
 }
 
