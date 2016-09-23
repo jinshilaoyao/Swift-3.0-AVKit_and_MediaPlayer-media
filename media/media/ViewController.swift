@@ -9,17 +9,34 @@
 import UIKit
 import AVKit
 import MediaPlayer
+import CoreBluetooth
 
-class ViewController: UIViewController,AVPlayerViewControllerDelegate {
+class ViewController: UIViewController, CBCentralManagerDelegate{
     
     fileprivate var playerVC: AVPlayerViewController?
+    
+    var manager: CBCentralManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+    manager = CBCentralManager(delegate: self, queue: nil)
+        
+       manager?.scanForPeripherals(withServices: nil, options: nil)
+        
+        
+    }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        
     }
 
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        
+    }
+    
     @objc private func moviePlayerPlaybackDidFinishNotification() {
         
     }
@@ -56,7 +73,6 @@ class ViewController: UIViewController,AVPlayerViewControllerDelegate {
 
         playerVC = AVPlayerViewController()
         playerVC?.player = AVPlayer(url: url!)
-        playerVC?.delegate = self
         
         playerVC?.player?.play()
         
