@@ -50,6 +50,19 @@ class ViewController: UIViewController {
 
 
     }
+    @IBAction func playerPlanTwo() {
+        
+        let url = Bundle.main.url(forResource: "media1.mov", withExtension: nil)
+
+        playerVC = AVPlayerViewController()
+        playerVC?.player = AVPlayer(url: url!)
+        
+        playerVC?.player?.play()
+        
+        playerVC?.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        
+        view.addSubview((playerVC?.view)!)
+    }
 
 }
 

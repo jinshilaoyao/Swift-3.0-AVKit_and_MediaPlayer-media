@@ -26,6 +26,14 @@
                                     <action selector="moviePlayerControllerWithoutView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oc4-h5-K3G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1e-dE-sHY">
+                                <frame key="frameInset" minX="16" minY="212" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="播放方法二"/>
+                                <connections>
+                                    <action selector="playerPlanTwo" destination="BYZ-38-t0r" eventType="touchUpInside" id="oP9-NV-inF"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMB-BE-m4K">
                                 <frame key="frameInset" minY="155" width="116" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -40,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-695" y="99"/>
+            <point key="canvasLocation" x="-695.20000000000005" y="98.50074962518741"/>
         </scene>
     </scenes>
 </document>
